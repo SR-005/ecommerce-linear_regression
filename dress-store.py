@@ -2,6 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.model_selection import train_test_split
 
 #READING AND CLEANING DATA:
 
@@ -27,4 +28,8 @@ plt.show()'''
 
 #Another way of analyzing is my plotting a PAIRPLOT: it shows scatterplot of every element all at once
 sns.pairplot(df, kind="scatter",plot_kws={"alpha": 0.5})
-plt.show()
+plt.show()  #We found that Length of Membership is best
+
+
+#MODEL TRAINING AND TESTING  -X is capital,y is small 
+#X=df[[""]]
