@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
 
 #READING AND CLEANING DATA:
 
@@ -36,5 +37,13 @@ X=df[["Avg. Session Length","Time on App","Time on Website","Length of Membershi
 y=df["Yearly Amount Spent"] #data that will be used to check predictions\test
 
 #to create train and test variables for model to learn - (traindata,testdata,portion of data used for test i.e, 70% is for train and 30% is for test,number of random split)
-
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=42)
+
+
+#TRAINING THE MODEL
+
+lm=LinearRegression()   #initialize the linear regression model -lm
+lm.fit(X_train,y_train) #feeding train data to model using fit
+
+prediction=lm.predict(X_test)
+print(prediction)
