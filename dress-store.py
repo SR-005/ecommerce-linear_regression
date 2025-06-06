@@ -35,6 +35,6 @@ plt.show()  #We found that Length of Membership is best
 X=df[["Avg. Session Length","Time on App","Time on Website","Length of Membership"]] #data that will be used to train
 y=df["Yearly Amount Spent"] #data that will be used to check predictions\test
 
-#to create train and test variables for model to learn - (traindata,testdata,portion of data used for test i.e, 70% is for train and 30% is for test,
+#to create train and test variables for model to learn - (traindata,testdata,portion of data used for test i.e, 70% is for train and 30% is for test,number of random split)
 
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=42)
