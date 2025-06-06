@@ -1,9 +1,11 @@
 #%%
 import pandas as pd
+import math
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error,mean_squared_error 
 
 #READING AND CLEANING DATA:
 
@@ -46,4 +48,20 @@ lm=LinearRegression()   #initialize the linear regression model -lm
 lm.fit(X_train,y_train) #feeding train data to model using fit
 
 prediction=lm.predict(X_test)
-print(prediction)
+'''print(prediction)'''
+
+
+
+#CHECK THE PREDICTIONS 
+
+#Using Graphs
+sns.scatterplot(x=prediction, y=y_test)
+'''plt.show()'''      #it seems close as a straight line
+
+#Calculating Errors:
+error1=mean_absolute_error(y_test,prediction)
+error2=mean_squared_error(y_test,prediction)
+error3=math.sqrt(error2)
+print("Mean Absolute Error: ",error1)
+print("Mean Square Error: ",error2)
+print("RMSE: ",error3)
